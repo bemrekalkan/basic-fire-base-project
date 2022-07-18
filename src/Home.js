@@ -1,6 +1,6 @@
 import "./Home.css";
 import db, { auth } from "./firebase";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Home({ user }) {
   const [name, setName] = useState("");
@@ -12,10 +12,6 @@ function Home({ user }) {
     db.collection("people").onSnapshot((snapshot) => {
       setPeople(snapshot.docs.map((doc) => ({})));
     });
-
-    return () => {
-      second;
-    };
   }, []);
 
   const add = (e) => {
