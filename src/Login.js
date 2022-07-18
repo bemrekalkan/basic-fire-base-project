@@ -1,7 +1,8 @@
+import React from "react";
 import { auth, provider } from "./firebase";
 import "./Login.css";
 
-function Login() {
+const Login = () => {
   const login = () => {
     auth.signInWithPopup(provider).catch((error) => alert(error.message));
   };
@@ -12,6 +13,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
 export default Login;
