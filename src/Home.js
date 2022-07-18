@@ -1,6 +1,7 @@
 import "./Home.css";
 import db, { auth } from "./firebase";
 import React, { useState, useEffect } from "react";
+import Person from "./Person";
 
 function Home({ user }) {
   const [name, setName] = useState("");
@@ -42,7 +43,11 @@ function Home({ user }) {
         />
         <button onClick={add}>Add</button>
       </form>
-      <div className="home_people"></div>
+      <div className="home_people">
+        {people.map(({ id, data: { name, surname } }) => {
+          <Person key={id} name={name} surname={surname} />;
+        })}
+      </div>
     </div>
   );
 }
